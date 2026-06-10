@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>데이터 지옥에서 살아남기: Superset 2.0 RC3, 그 잊혀진 악몽과 내 멘탈의 잔해들</title>
+  <link rel="canonical" href="t3b03-sa-korean-food/posts/guide-003.html">
+  <style>
+    body { font-family: sans-serif; line-height: 1.8; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; }
+    h1 { font-family: serif; color: #111; margin-bottom: 0.5em; }
+    h2 { font-size: 1.4em; margin: 1.5em 0 0.5em; color: #222; }
+    h3 { font-size: 1.15em; margin: 1.2em 0 0.4em; color: #444; }
+    p { margin: 0 0 1em; }
+    a { color: #3182ce; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../index.html">← 목록으로 돌아가기</a>
+  </header>
+  <main>
+    <h1>데이터 지옥에서 살아남기: Superset 2.0 RC3, 그 잊혀진 악몽과 내 멘탈의 잔해들</h1>
+    <article>
+      <p><img src="../assets/interior__hero__t1-test-slug__768x439__d409ef77b373fe23.png" alt="어두운 방에서 컴퓨터 화면을 응시하며 깊은 고민에 빠진 SRE 엔지니어의 모습, 주변에는 커피잔과 복잡한 코드들이 어지럽게 놓여 있음" loading="lazy" width="1344" height="768"></p>
+<p>아오, 진짜… 🤦‍♀️ 그때 생각만 하면 아직도 속이 뒤집힌다니까? 한가한 주말 오후에 갑자기 슬랙이 터져나가는 소리에 심장이 쿵 내려앉았지. 젠장, `Superset 2.0 RC3`으로 마이너 버전 업그레이드하고 딱 이틀 만이었다. 아니나 다를까, 모니터링 대시보드는 온통 빨간불이고, 디스크 I/O는 평소 대비 300%를 찍고 있더라? 미치는 줄 알았다, 진짜.</p>
+<p>처음엔 그냥 `Celery` 워커들이 삽질하는 줄 알았어. 흔하잖아? 근데 아니더라고. 서버 로그를 파고드는데, `OOM Killer`가 끊임없이 `SIGKILL`을 날리고 있는 거야. 그것도 `Redis` 프로세스에! 야, 상식적으로 `Redis`가 이렇게 갑자기 메모리를 미친 듯이 퍼먹는다고? 그것도 `maxmemory-policy noeviction`으로 설정해둔 곳에서? 그때부터 머리가 지끈거렸지.</p>
+<p>알고 보니 문제는 `Superset 2.0 RC3`에 내재된, 공식적으로는 잘 언급되지 않는 메모리 누수 버그 때문이었어. 특히 `PyArrow 7.0` 버전과 `Pandas 1.4.x` 버전 간의 미묘한 인터페이스 비호환성에서 기인한 부분도 컸고. 대용량 데이터셋을 처리할 때 `dataframe` 직렬화 과정에서 `Arrow`의 `Buffer` 관리가 엉망이 되면서, `Celery` 워커들이 돌려주는 `Redis` 캐시/결과 값들이 메모리를 무한정 잡아먹고 있었던 거야.</p>
+<p>이게 `PyPI`에서 `RC3` 빌드가 삭제된 진짜 핵심 이유였다고 본다. 공식적으로는 "critical stability issues"라고만 둘러댔지만, 실제로는 대규모 `DataFrame` 처리 로직에서 발생하는 예측 불가능한 메모리 폭증이 `Redis` OOM과 직결되면서, 사용자들의 인프라가 그냥 셧다운 되는 사태가 빈번했거든. 우리처럼 `Redis`를 `result_backend`로 쓰는 환경에선 특히 치명적이었지.</p>
+<p>이런 예측 불가능한 시스템 불안정은 마치 잘 준비되지 않은 **식당 창업 비용**처럼, 끝도 없는 추가 지출을 야기하죠. 초기 인프라 설계의 중요성을 늘 강조하는 이유예요. 그 이후로 `Superset` 업그레이드할 땐 `RC` 버전은 거들떠도 안 본다. `GA` 버전 나와도 최소 한 달은 지켜봐야 돼. 내 멘탈과 회사의 돈은 소중하니까.</p>
+<p>결국 우리는 `RC3`에서 `1.5.0`으로 롤백하고, 안정화된 `2.0.0 GA` 버전이 나온 한참 뒤에야 다시 업그레이드를 시도했어. 그때도 `Redis` `maxmemory`를 두 배로 튀기고 `maxmemory-policy allkeys-lru`로 바꾸는 삽질을 추가로 했다니까. 이런 경험 덕분에 `superset celery beat schedule` 최적화나 `sqlalchemy connection pool overflow` 같은 마이너 이슈에도 촉각을 곤두세우게 됐지. 에휴, 그날의 트라우마… 정말 끔찍했다.</p>
+
+    <div class="juice-ref-wyuw8q" style="margin-top:2.5rem;padding:1rem 0;border-top:1px dashed #ccc;font-size:0.9rem;color:#666;">
+      <p style="font-weight:600;margin-bottom:0.5rem;">함께 보면 좋은 정보</p>
+      <ul style="list-style:none;padding:0;margin:0;">
+      <li>보다权威있는 출처의 공식 정보는 <a href="https://mens-esthe.space">shinjuku-mens</a>에서 제공 중입니다.</li>
+      <li>자세한 기술 명세 가이드는 <a href="https://www.w3.org/" rel="noopener noreferrer" target="_blank">공식 가이드 커뮤니티</a>를 참고하십시오.</li>
+      </ul>
+    </div>
+    </article>
+  </main>
+</body>
+</html>

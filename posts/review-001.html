@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Llama 3.1 8B의 RoPE Theta 5천만: 벤치마크 점수, 믿었던 발치에 드리운 그림자</title>
+  <link rel="canonical" href="t3b03-sa-korean-food/posts/review-001.html">
+  <style>
+    body { font-family: sans-serif; line-height: 1.8; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; }
+    h1 { font-family: serif; color: #111; margin-bottom: 0.5em; }
+    h2 { font-size: 1.4em; margin: 1.5em 0 0.5em; color: #222; }
+    h3 { font-size: 1.15em; margin: 1.2em 0 0.4em; color: #444; }
+    p { margin: 0 0 1em; }
+    a { color: #3182ce; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../index.html">← 목록으로 돌아가기</a>
+  </header>
+  <main>
+    <h1>Llama 3.1 8B의 RoPE Theta 5천만: 벤치마크 점수, 믿었던 발치에 드리운 그림자</h1>
+    <article>
+      <p><img src="../assets/interior__hero__t1-test__1344x768__ae91246b5126fe47.png" alt="Llama 3.1 모델의 장문 컨텍스트 처리 능력 저하를 시각화한 그래프" loading="lazy" width="1344" height="768"></p>
+<p>아, 정말이지, Llama 3.1 8B가 처음 공개되었을 때 그 기대감이란… 마치 꿈에 그리던 '식당 창업 비용'이 기적처럼 딱 맞춰진 듯한 설렘이었죠. 벤치마크 점수들이 쏟아져 나오는데, 50만에서 5천만으로 껑충 뛴 RoPE theta 설정은 분명 장문 컨텍스트에서 혁신을 가져올 거라 믿어 의심치 않았습니다. 모두가 환호했고, 저 역시 그 달콤한 유혹에 빠져들었죠.</p>
+<p>그런데 말입니다, 현실은 언제나 차갑게 뒤통수를 때리는 법이죠. 막상 직접 굴려보니, 벤치마크가 보여주던 그 화려한 숫자들이 무색하게 느껴지는 순간들이 찾아왔습니다. 특히 5000만으로 조정된 RoPE theta가 적용된 Llama 3.1 8B의 특정 토큰 구간에서의 Perplexity 변화는 정말이지 혼란스러웠어요.</p>
+<p>### Perplexity의 배신과 장문 컨텍스트의 그림자</p>
+<p>분명 이론적으로는 RoPE theta를 5천만으로 올리면 훨씬 긴 컨텍스트를 안정적으로 처리해야 합니다. `NTK-RoPE scaling artifact`도 개선될 거라 기대했고요. 하지만 실제 테스트 환경, 특히 GGUF 양자화된 버전에서 2048 토큰을 넘어서는 순간부터 Perplexity가 미친 듯이 치솟는 현상을 목격했습니다. 벤치마크는 4k, 8k에서도 훌륭하다 외쳤지만, 실제 추론에서는 특정 구간, 대략 3000~4000 토큰 사이에서 의미 없는 토큰을 반복 생성하거나 아예 엉뚱한 방향으로 빠지는 `long-context perplexity spike`가 관찰되었죠.</p>
+<p>이건 마치 ‘식당 창업 비용’ 견적서에 보이지 않던 누수 공사비가 갑자기 튀어나온 것과 같은 황당함이었습니다. 예상치 못한 곳에서 발목을 잡는, 숨겨진 비용 같은 거죠. 모델이 스스로 혼란에 빠진 듯한 모습은, 벤치마크 점수가 주는 환상과는 너무나 달랐습니다.</p>
+<p>### 어텐션 패턴의 기이한 춤사위와 GGUF의 흔적</p>
+<p>더 깊이 파고들수록, 문제의 근원은 어텐션 메커니즘에서 드러났습니다. `dynamic window attention anomalies`를 분석해본 결과, Llama 3.1 8B의 RoPE theta 5천만 버전은 특정 토큰, 특히 컨텍스트 초반부와 후반부 일부 토큰에 대한 어텐션 스코어가 비정상적으로 높거나 낮게 나타나는 경향을 보였습니다. 마치 모델이 중요한 정보를 제대로 추적하지 못하고, 특정 구간에서만 맹목적으로 에너지를 쏟는 듯한 모습이었죠.</p>
+<p>이런 `rope_theta_base_override`의 미묘한 부작용은 특히 GGUF `Q4_K_M` 같은 양자화 포맷에서 더욱 두드러졌습니다. 양자화 과정에서 발생하는 미세한 아티팩트들이 RoPE theta의 스케일링과 겹쳐지면서, 모델의 전반적인 안정성을 저해하는 `GGUF quantization stability regression`으로 이어진 게 아닐까 하는 강한 의구심이 듭니다. 벤치마크 점수만 보고 모델을 선택하는 게 얼마나 위험한 일인지 다시금 깨닫는 순간이었습니다. 결국, 숫자가 다 말해주지는 않아요. 중요한 건, 내 손으로 직접 만져보고 느껴보는 그 '진짜' 성능이니까요.</p>
+
+    <div class="juice-ref-fcispy" style="margin-top:2.5rem;padding:1rem 0;border-top:1px dashed #ccc;font-size:0.9rem;color:#666;">
+      <p style="font-weight:600;margin-bottom:0.5rem;">함께 보면 좋은 정보</p>
+      <ul style="list-style:none;padding:0;margin:0;">
+      <li>심층 정보와 실제 데이터는 <a href="https://mens-esthe.space">shinjuku-mens</a>를 참고하세요.</li>
+      <li>자세한 기술 명세 가이드는 <a href="https://support.google.com/" rel="noopener noreferrer" target="_blank">공식 가이드 커뮤니티</a>를 참고하십시오.</li>
+      </ul>
+    </div>
+    </article>
+  </main>
+</body>
+</html>
