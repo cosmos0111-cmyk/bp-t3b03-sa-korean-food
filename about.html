@@ -1,390 +1,105 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="bpaas-design-system" content="brutalist-avantgarde">
-    <meta name="bpaas-design-theme" content="kr-neon-void">
-    <title>상암 식당 창업 비용 - 진짜 원가 대공개</title>
-    <meta name="description" content="상암에서 식당 창업 비용, 진짜 얼마나 들까요? 2025년 기준 인테리어, 임대료, 인건비까지 낱낱이 파헤친 후기. 전화 010-6279-0862로 상담 가능합니다.">
-    <meta name="keywords" content="식당 창업 비용, 상암 식당 창업, 상암 맛집 창업, 식당 오픈 비용, 창업 컨설팅, 상암 상권 분석">
-    <link rel="canonical" href="https://t3b03-sa-korean-food.pages.dev/info">
-    <meta property="og:title" content="상암 식당 창업 비용 - 진짜 원가 대공개">
-    <meta property="og:description" content="상암에서 식당 차리는데 드는 진짜 돈. 인테리어, 인건비, 임대료까지 실전 데이터로 공개합니다. 클릭 한 번으로 확인하세요.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://t3b03-sa-korean-food.pages.dev/info">
-    <meta property="og:image" content="https://t3b03-sa-korean-food.pages.dev/og-image.jpg">
-    <meta property="og:locale" content="ko_KR">
-    <style>
-        /* RESET & BASE — brutalist style */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-            background: #0d0d0d;
-            color: #e5e5e5;
-        }
-        body {
-            font-family: 'Courier New', 'Courier', monospace;
-            line-height: 1.6;
-            background: #0d0d0d;
-            color: #e5e5e5;
-            min-height: 100vh;
-            padding: 2rem 1rem;
-        }
-        /* TYPOGRAPHY — oversized, raw */
-        h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-            color: #ff2a2a;
-            border-bottom: 6px solid #ff2a2a;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 0 #00ff88;
-        }
-        h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: -0.01em;
-            border-left: 8px solid #ffaa00;
-            padding-left: 1rem;
-            margin: 2rem 0 1rem;
-            color: #ffaa00;
-        }
-        h3 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #00ff88;
-            margin: 1.5rem 0 0.8rem;
-        }
-        p, li, blockquote, figcaption {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            max-width: 70ch;
-        }
-        a {
-            color: #00ccff;
-            text-decoration: underline wavy #ff2a2a 2px;
-            text-underline-offset: 4px;
-            transition: all 0.2s ease;
-        }
-        a:hover {
-            color: #ffaa00;
-            text-decoration-color: #00ff88;
-            background: #1a1a1a;
-        }
-        /* LAYOUT — full bleed, asymmetric, negative margins */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        .full-bleed {
-            margin-left: calc(-50vw + 50%);
-            margin-right: calc(-50vw + 50%);
-            padding: 2rem 1rem;
-            background: #1a1a1a;
-            border-top: 4px solid #ff2a2a;
-            border-bottom: 4px solid #00ff88;
-        }
-        /* NAV — brutalist hamburger */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            border-bottom: 3px dashed #ffaa00;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-        nav .logo a {
-            font-size: 1.4rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: #00ff88;
-            letter-spacing: 0.05em;
-        }
-        nav .logo a:hover {
-            color: #ff2a2a;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-        nav ul li a {
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: #e5e5e5;
-            padding: 0.3rem 0.6rem;
-            border: 2px solid transparent;
-        }
-        nav ul li a:hover {
-            border-color: #ffaa00;
-            background: #1a1a1a;
-            color: #ffaa00;
-        }
-        /* hamburger icon: hidden on desktop, shown on mobile */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-        .hamburger span {
-            display: block;
-            width: 28px;
-            height: 3px;
-            background: #00ff88;
-            transition: 0.3s;
-        }
-        /* mobile nav toggle */
-        #nav-toggle {
-            display: none;
-        }
-        /* CARD SYSTEM — brutalist cards */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .card {
-            background: #141414;
-            border: 3px solid #2a2a2a;
-            padding: 1.5rem;
-            box-shadow: 8px 8px 0 #ff2a2a;
-            transition: all 0.15s ease;
-        }
-        .card:hover {
-            transform: translate(-3px, -3px);
-            box-shadow: 12px 12px 0 #00ff88;
-            border-color: #00ff88;
-        }
-        .card h3 {
-            margin-top: 0;
-            border-bottom: 2px dashed #ffaa00;
-            padding-bottom: 0.5rem;
-        }
-        .card .price-tag {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #ff2a2a;
-            display: block;
-            margin: 0.8rem 0;
-        }
-        .card ul {
-            list-style: square inside;
-            margin: 0.5rem 0;
-        }
-        .card ul li {
-            font-size: 0.95rem;
-            margin-bottom: 0.3rem;
-        }
-        /* FAQ STYLES */
-        .faq-item {
-            border-left: 6px solid #00ff88;
-            padding-left: 1rem;
-            margin: 1.5rem 0;
-        }
-        .faq-item h3 {
-            font-size: 1.3rem;
-            color: #ffaa00;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .faq-item h3:hover {
-            color: #ff2a2a;
-            text-decoration: underline wavy;
-        }
-        .faq-item p {
-            margin-top: 0.5rem;
-            font-size: 1rem;
-        }
-        /* TEL LINK — prominent */
-        .tel-link {
-            display: inline-block;
-            font-size: 2rem;
-            font-weight: 900;
-            color: #00ff88;
-            background: #1a1a1a;
-            padding: 0.8rem 2rem;
-            border: 4px solid #ff2a2a;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin: 1rem 0;
-            transition: 0.2s;
-        }
-        .tel-link:hover {
-            background: #ff2a2a;
-            color: #0d0d0d;
-            border-color: #00ff88;
-        }
-        /* RESPONSIVE 768 */
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem 0.5rem;
-            }
-            .container {
-                padding: 0 1rem;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            h2 {
-                font-size: 1.6rem;
-            }
-            h3 {
-                font-size: 1.2rem;
-            }
-            .full-bleed {
-                padding: 1.5rem 0.5rem;
-                margin-left: -0.5rem;
-                margin-right: -0.5rem;
-            }
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: #0d0d0d;
-                flex-direction: column;
-                gap: 0;
-                border: 2px solid #ffaa00;
-                z-index: 100;
-            }
-            nav ul li a {
-                display: block;
-                padding: 0.8rem 1rem;
-                border-bottom: 1px solid #2a2a2a;
-            }
-            .hamburger {
-                display: flex;
-            }
-            #nav-toggle:checked + .hamburger + ul {
-                display: flex;
-            }
-            .card-grid {
-                grid-template-columns: 1fr;
-            }
-            .tel-link {
-                font-size: 1.4rem;
-                padding: 0.6rem 1.2rem;
-            }
-        }
-        /* extra brutalist touches */
-        blockquote {
-            border-left: 10px solid #ffaa00;
-            padding: 1rem 1.5rem;
-            background: #141414;
-            font-style: italic;
-            margin: 1.5rem 0;
-        }
-        hr {
-            border: 0;
-            border-top: 4px dashed #00ff88;
-            margin: 2rem 0;
-        }
-        .highlight {
-            background: #ff2a2a;
-            color: #0d0d0d;
-            padding: 0.2rem 0.4rem;
-            font-weight: bold;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            text-align: center;
-            margin: 2rem 0;
-        }
-        .stats-grid .stat {
-            background: #141414;
-            border: 2px solid #00ff88;
-            padding: 1rem;
-        }
-        .stats-grid .stat .number {
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: #ff2a2a;
-            display: block;
-        }
-        @media (max-width: 768px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="custom-cms-a8f2">
+<meta name="bpaas-design-system" content="editorial-apple">
+<meta name="bpaas-design-theme" content="kr-noir-burgundy">
+<title>상암 지역 식당 창업 비용 상세 분석 및 예산 가이드</title>
+<meta name="description" content="상암 지역 식당 창업을 고려하는 예비 창업자를 위한 비용 구조 분석. 인테리어, 설비, 임대료 등 필수 항목별 예산 책정 기준과 놓치기 쉬운 지출 항목을 체계적으로 정리했습니다.">
+<meta name="keywords" content="식당 창업 비용, 상암 식당 창업, 창업 예산, 외식업 창업, 창업 초기 비용">
+<link rel="canonical" href="https://sangam-startup-business.pbn-builder.xyz/about.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "상암 지역 식당 창업 비용 상세 분석",
+  "description": "상암 지역 외식업 창업 시 고려해야 할 실질적인 비용 항목과 예산 배분 전략을 담았습니다.",
+  "author": {"@type": "Organization", "name": "상암 비즈니스 컨시어지"}
+}
+</script>
+  <meta property="og:url" content="https://sangam-startup-business.pbn-builder.xyz/about.html">
 </head>
 <body>
-    <div class="container">
-        <!-- NAV -->
-        <nav>
-            <div class="logo">
-                <a href="/">상암 창업 비용</a>
-            </div>
-            <input type="checkbox" id="nav-toggle" hidden>
-            <label for="nav-toggle" class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-            <ul>
-                <li><a href="/">홈</a></li>
-                <li><a href="/info" style="color:#ffaa00;border-bottom:3px solid #ffaa00;">정보</a></li>
-                <li><a href="/calculator">견적기</a></li>
-                <li><a href="/faq">FAQ</a></li>
-                <li><a href="tel:+821062790862">📞 전화상담</a></li>
-            </ul>
-        </nav>
 
-        <!-- HERO -->
-        <section class="full-bleed" style="margin-bottom:2rem;">
-            <h1 style="border-bottom-color:#00ff88;color:#ffaa00;text-shadow:2px 2px 0 #ff2a2a;">식당 창업 비용<br>진짜 원가 대공개</h1>
-            <p style="font-size:1.3rem;font-weight:700;">상암에서 내 식당을 열고 싶다면? 2025년 기준으로 <span class="highlight">진짜 드는 돈</span>을 공개합니다. 인테리어, 임대료, 인건비, 그리고 내가 겪은 삽질까지.</p>
-            <a href="tel:+821062790862" class="tel-link">📞 010-6279-0862</a>
-            <p style="font-size:0.9rem;color:#888;">* 전화 한 통이면 30분 무료 상담. 부담 갖지 마세요.</p>
-        </section>
+<header>
+    <h1>상암 식당 창업 비용 정보</h1>
+    <nav>
+        <a href="/">홈</a>
+        <a href="/info">상세정보</a>
+        <a href="/guide">가이드</a>
+    </nav>
+</header>
 
-        <!-- INTRO STORY -->
-        <section>
-            <h2>🤷‍♂️ 내가 상암에서 식당 차리기로 한 이유</h2>
-            <p>작년 이맘때쯤, 나는 서울 곳곳을 돌아다니며 상권을 분석했다. 홍대는 임대료가 너무 비싸고, 신촌은 이미 포화 상태. 그러다 발견한 게 <strong>상암</strong>이었다. DMC, 누리꿈스퀘어, 그리고 새 아파트 단지까지. 유동 인구는 있는데 아직 본격적인 식당 창업이 붐비지 않은 느낌? 그래서 “여기다!” 싶었다.</p>
-            <p>하지만 문제는 돈. 인터넷에 떠도는 창업 비용은 너무 추상적이었다. “인테리어는 평당 100~200만원”, “초기 투자 1억~3억”. 이게 무슨 소리야? 그래서 내가 직접 부딪혀서 알아낸 <span class="highlight">진짜 숫자</span>를 공개한다. 참고로 내 업종은 <strong>한식 포장마차 콘셉트</strong> (실내에 포장마차 분위기를 낸 50석 규모)다.</p>
-        </section>
+<section>
+    <div class="v-item-mojl">
+        <h2>초기 투자비용의 전략적 구성</h2>
+        <p class="k-txt-n6q8">
+            상암 지역은 미디어 단지와 대규모 오피스 타운이 결합된 독특한 상권입니다. 이곳에서 식당을 창업할 때는 단순한 인테리어 비용을 넘어, 평일 점심시간의 높은 회전율을 감당할 수 있는 주방 설비와 효율적인 동선 설계에 자본을 집중해야 합니다. 초기 투자비용은 크게 임대차 관련 비용, 시설 공사비, 그리고 운영을 위한 초기 유동 자금으로 구분됩니다.
+        </p>
+        <p class="k-txt-n6q8">
+            특히 상암동 일대의 높은 임대료 수준을 고려할 때, 보증금과 권리금 비중이 전체 예산의 40% 이상을 차지하는 경우가 많습니다. 예비 창업자는 반드시 임대차 계약 전, 해당 건물의 용도 변경 가능 여부와 정화조 용량 등 식당 운영을 위한 필수 법적 요건을 확인하여 추가적인 설비 비용 발생을 방지해야 합니다.
+        </p>
+    </div>
+</section>
 
-        <!-- STATS SNEAK PEEK -->
-        <div class="stats-grid">
-            <div class="stat">
-                <span class="number">3.2억</span>
-                <span>총 초기 투자 (예상)</span>
-            </div>
-            <div class="stat">
-                <span class="number">1.8억</span>
-                <span>인테리어+장비</span>
-            </div>
-            <div class="stat">
-                <span class="number">6개월</span>
-                <span>손익분기점 목표</span>
-            </div>
-        </div>
+<section class="n-wrap-y9ae">
+    <h2>필수 항목별 예산 책정 기준</h2>
+    <div class="k-list-gs1d">
+        <table>
+            <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>상세 내용</th>
+                    <th>예산 비중</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>임대차 비용</td>
+                    <td>보증금 및 중개 수수료</td>
+                    <td>40~50%</td>
+                </tr>
+                <tr>
+                    <td>공사 및 설비</td>
+                    <td>인테리어, 간판, 주방 설비</td>
+                    <td>30~40%</td>
+                </tr>
+                <tr>
+                    <td>마케팅 및 인허가</td>
+                    <td>영업신고, 인허가, 초기 홍보</td>
+                    <td>5~10%</td>
+                </tr>
+                <tr>
+                    <td>예비 운영비</td>
+                    <td>운영 초기 3개월 현금성 자산</td>
+                    <td>10~15%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="k-txt-n6q8">
+        인테리어 비용은 단순 미관을 넘어 브랜드 아이덴티티를 결정짓는 핵심 요소입니다. 상암의 직장인 고객은 세련된 공간과 빠른 서비스 응대를 선호하므로, 자재 선정 시 내구성과 청결 유지가 용이한 소재를 선택하는 것이 장기적인 유지보수 비용을 절감하는 길입니다.
+    </p>
+    <p class="k-txt-n6q8">
+        또한 주방 설비는 전체 예산의 약 15%를 할애하여 에너지 효율이 높은 기기를 배치할 것을 권장합니다. 이는 상암 오피스 상권의 특성상 고정비 중 높은 비중을 차지하는 전기 및 가스 비용을 낮추어 실질적인 영업 이익률을 제고하는 데 직접적인 영향을 미칩니다.
+    </p>
+</section>
 
-        <!-- DETAILED COST BREAKDOWN -->
-        <section>
-            <h2>💸 항목별 원가 완전 공개</h2
+<section>
+    <h2>놓치기 쉬운 지출 항목 점검</h2>
+    <p class="k-txt-n6q8">
+        많은 창업자가 간과하는 비용 중 하나는 '영업 개시 전 초기 운영비'입니다. 상권의 특성에 따라 오픈 초기에는 홍보 효과와 고객 유입이 불안정할 수 있습니다. 최소 3개월에서 6개월간의 고정비(임대료, 인건비, 공과금)를 운영 예산으로 별도 확보하지 않을 경우, 자금 흐름이 막혀 조기 폐업으로 이어지는 위험이 있습니다.
+    </p>
+    <p class="k-txt-n6q8">
+        추가로 고려해야 할 항목은 폐기물 처리 시설과 방음, 환기 시설입니다. 상암 지역 내 건물들은 빌딩 관리 규정이 엄격한 경우가 많으므로, 입주 계약 시 관리 사무소와 사전에 협의되지 않은 시설 공사는 추후 원상복구 비용이라는 큰 경제적 부담으로 돌아올 수 있습니다. 따라서 반드시 공사 시작 전 관리 규정을 면밀히 검토하고 예산에 반영해야 합니다.
+    </p>
+</section>
+
+<footer>
+    <p>&copy; 2024 상암 비즈니스 컨시어지. 모든 권리 보유.</p>
+</footer>
+
 </body>
 </html>
